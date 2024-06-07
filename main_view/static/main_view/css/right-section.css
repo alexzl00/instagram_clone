@@ -1,0 +1,91 @@
+.right-section {
+    position: fixed;
+    width: 380px;
+    height: 100%;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    row-gap: 10px;
+    visibility: hidden;
+}
+
+@media (min-width: 1271px) {
+    .right-section {
+        visibility: visible;
+    }
+}
+
+.right-section-top-space-filler {
+    height: 40px;
+}
+
+.user-profile {
+    width: 220px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-direction: row;
+    column-gap: 0;
+    margin-left: 30px;
+    margin-top: 0px;
+}
+
+.user-profile-image {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    padding: 0;
+    margin: 0;
+}
+
+.user-nickname-name-container {
+    width: 130px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin-left: 10px;
+    align-items: left;
+    justify-content: center;
+}
+
+.user-nickname {
+    font-size: 14px;
+    color: white;
+    font-weight: 700;
+    padding: 0;
+    margin-bottom: 2px;
+}
+
+.user-name {
+    font-size: 14px;
+    color: rgb(159, 158, 158);
+    font-weight: 500;
+    padding: 0;
+    margin-top: 2px;
+}
+
+.subscribe-recommendation-button {
+    font-size: 15px;
+    margin-left: 20px;
+    color: rgb(0, 149, 246);
+}
+.subscribed-reccomendation-batton {
+    color: rgb(176, 179, 181);
+}
+.subscribe-recommendation-button:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.user-subscribe-recommendation-text {
+    font-size: 16px;
+    color: rgb(188, 187, 187);
+    font-weight: 800;
+    margin-left: 30px;
+    margin-bottom: 10px;
+}

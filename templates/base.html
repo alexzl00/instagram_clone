@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block page_title %}{% endblock %}
+    {% block css_style %}{% endblock %}
+    {% block js_script %}{% endblock %}
+    {% comment %} <link rel='stylesheet' href='{% static 'style.css' %}'> {% endcomment %}
+</head>
+<body>
+    {% block content %}{% endblock %}
+</body>
+</html>

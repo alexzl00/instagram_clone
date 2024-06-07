@@ -1,0 +1,56 @@
+body {
+    background-color: rgb(24, 24, 24);
+    min-width: 500px;
+    margin-left: 280px;
+    margin-right: 250px;
+    margin-top: 30px;
+}
+
+
+@media (max-width: 1100px) {
+    .side_bar_container {
+        display: none;
+    }
+    body {
+        margin-left: 0px;
+    }
+}
+
+@media (max-width: 1270px) {
+    .side_bar_container {
+        width: 90px;
+    }
+    .main-page-text,
+    .search-text,
+    .message-text,
+    .profile-text,
+    .instagram-text {
+        display: none;
+    }
+    .main_page,
+    .search,
+    .messeges,
+    .profile {
+        width: 70px;
+        justify-content: center;
+        border-radius: 10px;
+    }
+
+    body {
+        margin-left: 100px;
+    }
+    .instagram-image {
+        display: none;
+    }
+}
+
+
+p {
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+button:hover {
+    cursor: pointer;
+}

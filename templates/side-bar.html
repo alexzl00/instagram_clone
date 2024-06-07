@@ -1,0 +1,38 @@
+{% load static %}
+<div class="side_bar_container" >
+    <div class="instagram-name">
+        <img class="instagram-image" src="{% static 'images/instagram.svg' %}">
+        <p class="instagram-text">Instagram</p>
+    </div>
+    <div>
+        <button class="main_page" onclick="
+            window.location.href = 'http://127.0.0.1:8000';
+        ">
+            <img class="main-page-image" src="{% static 'images/home_image.svg' %}">
+            <p class="main-page-text">Main</p>
+        </button>
+    </div>
+
+    <div>
+        <button class="search">
+            <img class="search-image" src="{% static 'images/search_image.svg' %}">
+            <p class="search-text">Search</p>
+        </button>       
+    </div>
+
+    <div>
+        <button class="messeges">
+            <img class="message-image" src="{% static 'images/message_image.svg' %}">
+            <p class="message-text">Messeges</p>
+        </button>
+    </div>
+    <div>
+        <button class="profile" onclick="
+            window.location.href = 'http://127.0.0.1:8000/profile';
+        ">
+            <img class="profile-image" src="{% static 'main_view/images/donut_profile_picture.jpeg' %}">
+            <p class="profile-text">Profile</p>
+        </button>
+    </div>
+    
+</div>

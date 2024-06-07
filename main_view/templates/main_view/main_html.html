@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css_side_bar.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main_view/css/general-css.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main_view/css/main-area.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main_view/css/right-section.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main_view/css/comments-section.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% endblock %}
+
+{% block js_script %}
+    <script type="module" src="{% static 'main_view/js/general.js' %}" defer></script>
+    <script type="module" src="{% static 'main_view/js/main_area.js' %}" defer></script>
+    <script>
+        const user_profiles_list = {{ user_profiles_list|safe }}
+        const user_posts_list = {{ user_posts_list|safe }}
+    </script>
+{% endblock %}
+
+{% block content %}
+    {% include "side-bar.html" %}
+
+    {% include 'main_view/comments.html' %}
+
+    <div class="main-area">
+        <p class="for-you-option">For you</p>
+        <div class="line"></div>
+        <div class="posts-container">
+        </div>
+    </div>
+
+    <div class="right-section">
+        <div class="right-section-top-space-filler"></div>
+        <div class="user-profile">
+            <a href="{% url 'user-profile' %}">
+                <img class="user-profile-image" src="{% static 'main_view/images/donut_profile_picture.jpeg' %}">
+            <a>
+            <div class="user-nickname-name-container">
+                <a href="{% url 'user-profile' %}">
+                    <p class="user-nickname">Donut_the_first</p>
+                <a>
+                <p class="user-name">Donut</p>
+            </div>
+        </div>
+        <p class="user-subscribe-recommendation-text">Recommendations for you</p>
+        <div class="subscribe-recommendations">
+        </div>
+    </div>
+{% endblock %}

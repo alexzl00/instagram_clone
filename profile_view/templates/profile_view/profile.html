@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css_side_bar.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'profile_view/css/general-css.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'profile_view/css/profile-main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'profile_view/css/posts.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% endblock %}
+
+{% block js_script %}
+    <script type="module" src="{% static 'profile_view/js/render_posts.js' %}" defer></script>
+    <script>
+        const initial_posts = {{ user_posts|safe }};
+    </script>
+{% endblock %}
+
+
+{% block content %}
+    {% include "side-bar.html" %}
+    <div class='profile-container'>
+        <div class='profile-info-container'>
+            <div class='profile-picture-container'>
+                <img class="profile-picture" src="{% static 'main_view/images/donut_profile_picture.jpeg' %}">
+            </div>
+
+            <div class='profile-statistic-container'>
+                <div class='nickname-container'>
+                    <p class='user-nickname'>My nickname</p>
+                    <button class='change-profile-button'>Change profile</button>
+                </div>
+                <div class='statistic-conatiner'>
+                    <p class='posts-counter'>7 posts</p>
+                    <p class='subscribers-counter'>9 sunscribers</p>
+                    <p class='your-subscribe-counter'>5 subscribes</p>
+                </div>
+                <p class='user-name'>My name</p>
+            </div>
+        </div>
+
+        <div class='line'></div>
+
+        <div class='posts'>
+        </div>
+    </div>
+{% endblock %}

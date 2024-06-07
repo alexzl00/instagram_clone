@@ -1,0 +1,73 @@
+
+.side_bar_container {
+    display: flex;
+    width: 250px;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    border-right: 1px solid rgb(103, 99, 99);
+}
+
+
+.instagram-name {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    align-items: center;
+    height: 50px;
+    font-family: 'Dancing Script';
+    color: white;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+.instagram-text {
+    font-size: 30px;
+}
+
+.main_page,
+.search,
+.messeges,
+.profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 20px;
+    background-color: rgb(24, 24, 24);
+    border-radius: 20px;
+    border: none;
+    width: 200px;
+    height: 70px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 30px;
+    color: white;
+}
+
+.main_page:hover,
+.search:hover,
+.messeges:hover,
+.profile:hover {
+    background-color: rgb(66, 63, 63);
+    -webkit-transition: background-color 300ms linear;
+    -ms-transition: background-color 300ms linear;
+    transition: background-color 300ms linear;
+}
+
+.main-page-image,
+.search-image,
+.message-image,
+.profile-image,
+.instagram-image {
+    width: 30px;
+    height: 30px;
+}
+
+.profile-image {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}

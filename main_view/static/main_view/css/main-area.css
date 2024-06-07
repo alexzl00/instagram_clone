@@ -1,0 +1,223 @@
+.main-area {
+    margin-left: 30px;
+    padding: 0x;
+    max-width: 600px;
+    min-width: 520px;
+    margin-right: 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+}
+
+/* a {
+    height: 50px;
+    width: 50px;
+} */
+
+a {
+    text-decoration: none; /* Removes default underline from the link */
+    display: inline-block; /* Ensures the link behaves like an inline-block element */
+}
+
+.for-you-option {
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.line {
+    background-color: rgb(103, 99, 99);
+    max-width: 600px;
+    min-width: 500px;
+    margin-top: -30px;
+    height: 1px;
+}
+
+.posts-container {
+    display: flex;
+    row-gap: 30px;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+}
+
+.post1-container {
+    width: 450px;
+    position: relative;
+}
+
+.publisher1-profile {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    width: 450px;
+}
+
+.user_nickname {
+    font-weight: 700;
+}
+
+.profile1-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    display: block;
+    /* aspect-ratio: 1; */
+}
+
+
+.post-image1 {
+    width: 450px;
+    height: 600px;
+    object-fit: cover;
+}
+
+.underpost-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 5px;
+    width: 450px;
+    height: auto;
+}
+
+.like-share-comment-save-container {
+    display: flex;
+    flex-direction: row;
+    width: 450px;
+    height: 50px;
+    justify-content: space-between;
+}
+
+.like-share-comment-container {
+    display: flex;
+    flex-direction: row;
+    width: 150px;
+    height: 30px;
+    column-gap: 8px;
+    margin-left: 5px;
+}
+
+.underpost-image-container {
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+
+.like,
+.comment,
+.share,
+.save {
+    height: 26px;
+    width: 26px;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%);
+}
+
+.like:hover,
+.comment:hover,
+.share:hover,
+.save:hover {
+    height: 28px;
+    width: 28px;
+}
+
+.share {
+    margin-right: 5px;
+}
+
+.likes-counter,
+.post-description {
+    margin: 0;
+    font-size: 17px;
+    margin-left: 5px;
+    font-weight: 700;
+}
+
+.post-description {
+    font-weight: 500;
+    margin-top: 8px;
+}
+
+.extend-post-description {
+    font-size: inherit;
+    color: rgb(120, 120, 120);
+}
+.extend-post-description:hover {
+    cursor: pointer;
+}
+
+.post-hashtags {
+    font-size: 17px;
+    margin-left: 5px;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: rgb(147, 189, 253);
+}
+
+.show-comments-text {
+    font-size: 17px;
+    padding-left: 5px;
+    margin: 0;
+    color: rgb(97, 98, 97);  
+}
+
+.comment-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 5px;
+}
+
+.add-comment {
+    display: flex;
+    flex-grow: 1;
+    background: none;
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 16px;
+    margin-left: -3px;
+    outline: none;
+    border: none;
+    width: 350px;
+    max-height: 90px;
+    height: auto; 
+    /* line-height: var(--system-17-line-height); */
+    resize: none;
+    word-wrap: break-word;
+
+    color: white;
+}
+.add-comment:focus {
+    border: none;
+}
+.add-comment::placeholder {
+    color: rgb(97, 98, 97); 
+}
+
+.publish-comment-button {
+    color: rgb(0, 149, 246);
+    font-size: 17px;
+    display: none;
+    margin: 0;
+}
+#publish-comment-button.visible {
+    display: block;
+}
+.publish-comment-button:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.line-between-posts {
+    position: absolute;
+    bottom: 0;
+    background-color: rgb(103, 99, 99);
+    width: 450px;
+    margin-top: 0px;
+    height: 1px;
+}

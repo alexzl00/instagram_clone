@@ -1,0 +1,123 @@
+.profile-container {
+    top: 60px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-40%, 0);
+    margin: 0;
+    height: auto;
+
+    /* width: 50%; */
+
+    /* min-width: 468px;
+    max-width: 600px; */
+
+    width: 900px;
+
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+
+}
+
+.line {
+    width: 900px;
+    border-top: 1px solid rgb(78, 76, 76);
+}
+
+@media (max-width: 1268px) {
+    .profile-container {
+        transform: translate(-50%, 0);
+    }
+}
+
+@media (max-width: 1000px) {
+    .profile-container {
+        width: 90%;
+    }
+    .line {
+        width: 100%;
+    }
+}
+
+.profile-info-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    min-width: 468px;
+    max-width: 600px;
+    width: 100%;
+    transition: width 0.3s ease;
+
+    margin-bottom: 30px;
+    margin-left: 2rem;
+}
+
+.profile-picture-container {
+    width: auto;
+    height: auto;
+}
+
+.profile-picture {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+
+.profile-statistic-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin-left: 40px;
+}
+
+.statistic-conatiner {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+}
+
+.nickname-container {
+    display: flex;
+    width: auto;
+    flex-direction: row;
+    column-gap: 30px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.user-nickname {
+    font-size: 20px;
+    margin: 0;
+}
+
+.change-profile-button {
+    background-color: rgb(66, 63, 63);
+    color: white;
+    padding: 6px 30px;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+.change-profile-button:hover {
+    background-color: rgb(55, 55, 55);
+    -webkit-transition: background-color 100ms linear;
+    -ms-transition: background-color 100ms linear;
+    transition: background-color 100ms linear;
+}
+
+.posts-counter,
+.subscribers-counter,
+.your-subscribe-counter {
+    font-size: 16px;
+}
+
+.user-name {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 800;
+}
