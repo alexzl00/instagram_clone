@@ -1,5 +1,5 @@
 {% load static %}
-<div class='comments-container-main'>
+<div id="post-comments" class='comments-container-main'>
     <div class='post-image-container'>
         <img class='post-image' src="{% static 'main_view/images/donut_profile_picture.jpeg' %}">
     </div>
@@ -26,6 +26,18 @@
             </div>
 
             <div class='comments-container'>
+                <div class='single-comment'>
+                    <img class='user-profile-picture' src="{% static 'main_view/images/donut_profile_picture.jpeg' %}">
+                    <div class='general-comment-container'>
+                        <div class='nickanme-comment-container'>
+                            <p class='user-comment'><span class='user-nickname'>Coochie man</span> i am a coochie man i am a coochie man i am a coochie man i am a coochie man i am a coochie man</p>
+                        </div>
+                        <div class='comment-description'>
+                            <p class='comment-publish-time'>1 day ago</p>
+                            <p class='comment-likes-counter'>Liked 1 234 times</p>
+                        </div>
+                    </div>
+                </div>
                 <div class='single-comment'>
                     <img class='user-profile-picture' src="{% static 'main_view/images/donut_profile_picture.jpeg' %}">
                     <div class='general-comment-container'>
@@ -105,6 +117,5 @@
                 <p class="publish-comment-button">Publish</p>
             </div>
         </div>
-
     </div>
 </div>

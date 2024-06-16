@@ -21,13 +21,12 @@
     <script>
         const user_profiles_list = {{ user_profiles_list|safe }}
         const user_posts_list = {{ user_posts_list|safe }}
+        const comments_for_post = {{ comments|safe }}
     </script>
 {% endblock %}
 
 {% block content %}
     {% include "side-bar.html" %}
-
-    {% include 'main_view/comments.html' %}
 
     <div class="main-area">
         <p class="for-you-option">For you</p>
@@ -53,4 +52,6 @@
         <div class="subscribe-recommendations">
         </div>
     </div>
+
+    {% include 'main_view/comments.html' %}
 {% endblock %}

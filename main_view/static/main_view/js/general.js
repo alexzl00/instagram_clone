@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     let generatedRecommendations = '';
     user_profiles_list.forEach((element) => {
-        console.log(element);
         generatedRecommendations += `
             <div class="user-profile">
                 <a href="http://127.0.0.1:8000/profile">
@@ -43,20 +42,20 @@ document.addEventListener('DOMContentLoaded', function() {
     
     let generatedPosts = '';
     user_posts_list.forEach((element) => {
-    
+
         generatedPosts += `
-            <div class="post1-container">
+            <div id='post-index-${element.id}' class="post1-container">
                 <div class="publisher1-profile">
                     <a href="http://127.0.0.1:8000/profile">
-                        <img class="profile1-image" src=${element.profile_picture}>
+                        <img id='profile1-image-${element.id}'class="profile1-image" src=${element.profile_picture}>
                     </a>
                     <a href="http://127.0.0.1:8000/profile">
-                        <p class="user1-name">${element.name}</p>
+                        <p id='user-name-${element.id}' class="user1-name">${element.name}</p>
                     </a>
                     <p>&#x2022;</p>
                     <p class="publishing-time">${element.post_time}</p>
                 </div>
-                <img class="post-image1" src=${element.post_image}>
+                <img id='post-image1-${element.id}' class="post-image1" src=${element.post_image}>
                 <div class="underpost-container">
                     <div class="like-share-comment-save-container">
                         <div class="like-share-comment-container">
@@ -64,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <img class='like' src="static/main_view/images/like.svg">
                             </div>
                             <div class="underpost-image-container">
-                                <img class='comment' src="static/main_view/images/comment.svg">
+                                <img id='post-index-${element.id}' class='comment' src="static/main_view/images/comment.svg">
                             </div>
                             <div class="underpost-image-container">
                                 <img class='share' src="static/main_view/images/share.svg">
@@ -75,9 +74,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                     </div>
                     <p class="likes-counter">224 450 Likes</p>
-                    <p class="post-description">${generatePostDescription(element)}</p>
-                    <p class="post-hashtags">#donutislife #lovedonut</p>
-                    <p class="show-comments-text">Show all comments (5500)</p>
+                    <p id='post-description-${element.id}' data-full-description='${element.post_description}' class="post-description">${generatePostDescription(element)}</p>
+                    <p id='post-hashtags-${element.id}' class="post-hashtags">#donutislife #lovedonut</p>
+                    <p id='post-index-${element.id}' class="show-comments-text">Show all comments (${element.number_of_comments})</p>
                     <div class="comment-section">
                         <textarea class="add-comment" placeholder="Add comment..."></textarea>
                         <p class="publish-comment-button">Publish</p>

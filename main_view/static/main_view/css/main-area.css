@@ -103,6 +103,9 @@ a {
     height: 40px;
     position: relative;
 }
+.underpost-image-container:hover {
+    cursor: pointer;
+}
 
 .like,
 .comment,
@@ -163,6 +166,10 @@ a {
     padding-left: 5px;
     margin: 0;
     color: rgb(97, 98, 97);  
+}
+
+.show-comments-text:hover {
+    cursor: pointer;
 }
 
 .comment-section {
