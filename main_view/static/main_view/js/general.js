@@ -2,9 +2,9 @@ document.addEventListener('DOMContentLoaded', function() {
     let generatedRecommendations = '';
     user_profiles_list.forEach((element) => {
         generatedRecommendations += `
-            <div class="user-profile">
+            <div id='user-profile-${element.id}' class="user-profile">
                 <a href="http://127.0.0.1:8000/profile">
-                    <img class="user-profile-image" src=${element.profile_picture}>
+                    <img class="user-profile-image" src=${element.profile_picture_path}>
                 <a>
                 <div class="user-nickname-name-container">
                     <a href="http://127.0.0.1:8000/profile">
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p id='post-index-${element.id}' class="show-comments-text">Show all comments (${element.number_of_comments})</p>
                     <div class="comment-section">
                         <textarea class="add-comment" placeholder="Add comment..."></textarea>
-                        <p class="publish-comment-button">Publish</p>
+                        <p id='publish-comment-button-${element.id}' class="publish-comment-button">Publish</p>
                     </div>
                 </div>
                 <div class="line-between-posts"></div>

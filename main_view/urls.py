@@ -8,5 +8,5 @@ urlpatterns = [
 
     # to fetch comments for the post to load
     path('get-comments/', views.get_comments_by_id, name='get_item_by_id'),
-    path('add_comment_to_db/', views.add_comment_to_db)
+    path('add-comment-to-db/', views.add_comment_to_db)
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

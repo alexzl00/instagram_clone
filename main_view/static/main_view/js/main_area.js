@@ -1,9 +1,9 @@
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    async function add_comment_to_db (post_id, comment_text) {
+    async function add_comment_to_db(post_id, comment_text, user_id) {
         try {
-            const response = await fetch(`/add_comment_to_db/`, {
+            const response = await fetch('/add-comment-to-db/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 body: new URLSearchParams({
                     'post_id': post_id,
-                    'comment_text': comment_text
+                    'comment_text': comment_text,
+                    'user_id': user_id
                 })
             });
             if (!response.ok) {
@@ -19,11 +20,26 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             const data = await response.json();
 
-            return data
+            console.log(data);
 
         } catch (error) {
             console.error('There was a problem with the fetch operation:', error);
         }
+    }
+    // Function to get CSRF token from cookie
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
     }
 
     // makes the publish button visible and invisible if the area with comment is filled
@@ -50,8 +66,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // has the following pattern publish-comment-button-1
                 const post_id = button.id.slice(23);
-                //add_comment_to_db(post_id, comment.value);
-
+                // we need  to define user_id of user that created post to add comment to db, so we can attach data-user-id
+                //add_comment_to_db(post_id, comment.value, user_id);
                 comment.value = '';
             })
         })
