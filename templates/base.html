@@ -1,11 +1,25 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block page_title %}{% endblock %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'general-instagram.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'comments-section.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css_side_bar.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'create.css' %}">
+
+    <script type="module" src="{% static 'js/create_post.js' %}" defer></script>
+    <script type="module" src="{% static 'js/side-bar.js' %}" defer></script>
+    <script>
+        const staticUrl = "{% static '' %}";
+    </script>
     {% block css_style %}{% endblock %}
-    {% block js_script %}{% endblock %}
+
+    {% block js_script %}
+    {% endblock %}
     {% comment %} <link rel='stylesheet' href='{% static 'style.css' %}'> {% endcomment %}
 </head>
 <body>

@@ -18,10 +18,14 @@
     height: 100%;
 } */
 
-.post-image {
+.post-image-in-profile {
     height: 100%;
     width: 100%;
     object-fit: cover;
+}
+.post-image-in-profile:hover {
+    cursor: pointer;
+    filter: brightness(70%); /* Darkens the image by reducing brightness to 70% */
 }
 
 @media (max-width: 1000px) {

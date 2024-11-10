@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block css_style %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css_side_bar.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main_view/css/main-area.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'profile_view/css/general-css.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'profile_view/css/profile-main.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'profile_view/css/posts.css' %}">
@@ -16,14 +16,20 @@
 
 {% block js_script %}
     <script type="module" src="{% static 'profile_view/js/render_posts.js' %}" defer></script>
+    {% comment %} <script type="module" src="{% static 'main_view/js/main_area.js' %}" defer></script> {% endcomment %}
     <script>
-        const initial_posts = {{ user_posts|safe }};
+        const initial_posts = {{ user_posts|safe }}
+        const user_posts_list = {{ user_posts|safe }}
     </script>
 {% endblock %}
 
 
 {% block content %}
     {% include "side-bar.html" %}
+    {% include 'create.html' %}
+
+    {% include 'comments.html' %}
+    
     <div class='profile-container'>
         <div class='profile-info-container'>
             <div class='profile-picture-container'>

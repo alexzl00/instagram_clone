@@ -2,11 +2,10 @@
 {% load static %}
 
 {% block css_style %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css_side_bar.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'main_view/css/general-css.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'main_view/css/main-area.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'main_view/css/right-section.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'main_view/css/comments-section.css' %}">
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,21 +20,22 @@
     <script>
         const user_profiles_list = {{ user_profiles_list|safe }}
         const user_posts_list = {{ user_posts_list|safe }}
-        const comments_for_post = {{ comments|safe }}
     </script>
 {% endblock %}
 
 {% block content %}
     {% include "side-bar.html" %}
 
-    <div class="main-area">
-        <p class="for-you-option">For you</p>
+    {% include 'create.html' %}
+
+    <section class="main-area">
+        <p class="for-you-option">For you</p> <!--<h1>-->
         <div class="line"></div>
         <div class="posts-container">
         </div>
-    </div>
+    </section>
 
-    <div class="right-section">
+    <section class="right-section">
         <div class="right-section-top-space-filler"></div>
         <div class="user-profile">
             <a href="{% url 'user-profile' %}">
@@ -51,7 +51,7 @@
         <p class="user-subscribe-recommendation-text">Recommendations for you</p>
         <div class="subscribe-recommendations">
         </div>
-    </div>
+    </section>
 
-    {% include 'main_view/comments.html' %}
+    {% include 'comments.html' %}
 {% endblock %}

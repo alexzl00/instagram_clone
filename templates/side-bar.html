@@ -1,5 +1,5 @@
 {% load static %}
-<div class="side_bar_container" >
+<nav class="side_bar_container" >
     <div class="instagram-name">
         <img class="instagram-image" src="{% static 'images/instagram.svg' %}">
         <p class="instagram-text">Instagram</p>
@@ -34,5 +34,10 @@
             <p class="profile-text">Profile</p>
         </button>
     </div>
-    
-</div>
+    <div>
+        <button class='create'>
+            <img class='create-image' src="{% static 'images/create_image.svg' %}">
+            <p class="message-text">Create</p>
+        </button>
+    </div>
+</nav>

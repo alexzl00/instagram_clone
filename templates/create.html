@@ -1,0 +1,29 @@
+{% load static %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<form id='uploadForm' method="post" action="{% url 'upload_file' %}" enctype="multipart/form-data">
+    <section id='createPostContainer' class='create-post-container'>
+        <div id='upload-img-container' class='upload-img-container'>
+
+            <img id='newPostImage' class='new-post-image' src="" alt="Image Preview">
+
+            <p id='uploadPostImageText' class='upload-post-image-text'>Select image from your device</p>
+
+            {% csrf_token %}
+            <input id='uploadPostImage' class='file-input' type="file" name="file">
+            <label id='uploadImageButton' class='upload-image-button' for='uploadPostImage'><i class="fa-solid fa-upload"></i>Upload image</label>
+        </div>
+        <div class='post_description_container'>
+            <div class='publisher-profile-container'>
+                <img class='publisher-profile-picture' src="{% static 'main_view/images/donut_profile_picture.jpeg' %}">
+                <p class='publisher-nickname'>Sth</p>
+            </div>
+
+            <textarea id='addPostDescription' class="add-post-description" type='text' name='description' placeholder="Add post description"></textarea>
+
+            <textarea id="addPostHashtags" class='add-post-hashtags' type='text' name='hashtags' placeholder='Add post hashtags'></textarea>
+        </div>
+        <p type='submit' id='create-post-button' class='create-button'>Create</p>
+    </section>
+</form>

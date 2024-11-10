@@ -30,13 +30,15 @@ body {
     .search-text,
     .message-text,
     .profile-text,
-    .instagram-text {
+    .instagram-text,
+    .create-text {
         display: none;
     }
     .main_page,
     .search,
     .messeges,
-    .profile {
+    .profile,
+    .create {
         width: 70px;
         justify-content: center;
         border-radius: 10px;

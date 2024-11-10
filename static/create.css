@@ -1,0 +1,129 @@
+.create-post-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: row;
+    column-gap: 3%;
+    width: 50em; /* Adjust width as needed */
+    height: 35rem;
+    z-index: 999;
+    /* background-color: rgb(195, 141, 141); */
+    border-radius: 20px;
+    background-color: rgb(43, 43, 43);
+}
+
+.upload-img-container {
+    width: 62%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid rgb(132, 132, 132);
+}
+
+.new-post-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    display: none;
+}
+
+.upload-post-image-text {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+.file-input[type='file'] {
+    display: none;
+}
+.upload-image-button {
+    border: none;
+    display: inline-block;
+    padding: 8px 12px;
+    cursor: pointer;
+    background-color: rgb(4, 126, 207);
+    color: white;
+    border-radius: 10px;
+}
+.upload-image-button:hover {
+    background-color: rgb(5, 106, 174);
+}
+.upload-image-button i {
+    color: white;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.upload-img-container,
+.post_description_container {
+    height: 100%;
+    margin: 0;
+}
+
+.post_description_container {
+    width: 35%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.publisher-profile-container {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    width: 100%;
+    height: 80px;
+}
+
+.publisher-profile-picture {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.publisher-nickname {
+    font-size: 14px;
+    color: white;
+    font-weight: 700;
+    padding: 0;
+    margin-bottom: 2px;
+}
+
+.add-post-description,
+.add-post-hashtags {
+    display: flex;
+    flex-grow: 1;
+    background: none;
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 16px;
+    margin-left: -3px;
+    outline: none;
+    border: none;
+    width: 100%;
+    max-height: 90px;
+    height: auto; 
+    resize: none;
+    word-wrap: break-word;
+    
+    color: white;
+}
+
+
+.create-button {
+    color: rgb(0, 149, 246);
+    font-size: 17px;
+    margin: 0;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+.create-button:hover {
+    color: white;
+    cursor: pointer;
+}

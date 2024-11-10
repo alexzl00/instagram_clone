@@ -12,7 +12,6 @@
     border-right: 1px solid rgb(103, 99, 99);
 }
 
-
 .instagram-name {
     display: flex;
     flex-direction: row;
@@ -31,7 +30,8 @@
 .main_page,
 .search,
 .messeges,
-.profile {
+.profile,
+.create {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -50,7 +50,8 @@
 .main_page:hover,
 .search:hover,
 .messeges:hover,
-.profile:hover {
+.profile:hover,
+.create:hover {
     background-color: rgb(66, 63, 63);
     -webkit-transition: background-color 300ms linear;
     -ms-transition: background-color 300ms linear;
@@ -61,7 +62,8 @@
 .search-image,
 .message-image,
 .profile-image,
-.instagram-image {
+.instagram-image,
+.create-image {
     width: 30px;
     height: 30px;
 }
