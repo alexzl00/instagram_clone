@@ -14,14 +14,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {% endblock %}
 
-{% block js_script %}
-    <script type="module" src="{% static 'main_view/js/general.js' %}" defer></script>
-    <script type="module" src="{% static 'main_view/js/main_area.js' %}" defer></script>
-    <script>
-        const user_profiles_list = {{ user_profiles_list|safe }}
-        const user_posts_list = {{ user_posts_list|safe }}
-    </script>
-{% endblock %}
 
 {% block content %}
     {% include "side-bar.html" %}
@@ -54,4 +46,14 @@
     </section>
 
     {% include 'comments.html' %}
+
+{% endblock %}
+
+{% block js_script %}
+<script>
+    const user_profiles_list = {{ user_profiles_list|safe }};
+    const user_posts_list = {{ user_posts_list|safe }};
+</script>
+<script type="module" src="{% static 'main_view/js/general.js' %}" defer></script>
+<script type="module" src="{% static 'main_view/js/main_area.js' %}" defer></script>
 {% endblock %}

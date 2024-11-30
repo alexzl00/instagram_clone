@@ -59,7 +59,6 @@ function getCookie(name) {
 
 // makes the publish button visible and invisible if the area with comment is filled
 function updatePublishCommentButton (comments, add_comment_buttons) {
-    console.log(add_comment_buttons);
 
     comments.forEach((TextInput, index) => {
 
@@ -164,7 +163,7 @@ function renderPostComments(comments_for_post) {
     return post_comments;
 }
 
-function renderPostCommentsContainer(comments_for_post, element_id, user_id) {
+function renderPostCommentsContainer(comments_for_post, post_id, user_id) {
     let post_comments = renderPostComments(comments_for_post);
 
     // const profile_picture = document.getElementById(`profile1-image-${element_id}`).src;
@@ -173,15 +172,14 @@ function renderPostCommentsContainer(comments_for_post, element_id, user_id) {
     // const post_description = user_posts_list[user_id].posts[element_id].post_description;
     // const post_time = document.getElementById(`publishing-time-${element_id}`).dataset.postTime;
     // const post_hashtags = document.getElementById(`post-hashtags-${element_id}`).textContent;
-    
     const profile_picture = user_posts_list[user_id].user.profile_picture_path;
     const user_name = user_posts_list[user_id].user.name;
-    const post_image = user_posts_list[user_id].posts[element_id].post_image_path;
-    const post_description = user_posts_list[user_id].posts[element_id].post_description;
-    const post_time = user_posts_list[user_id].posts[element_id].created_at;
+    const post_image = user_posts_list[user_id].posts[post_id].post_image_path;
+    const post_description = user_posts_list[user_id].posts[post_id].post_description;
+    const post_time = user_posts_list[user_id].posts[post_id].created_at;
     const post_hashtags = '';
     try {
-        user_posts_list[user_id].posts[element_id].post_hashtags.forEach((hashtag, index) => {
+        user_posts_list[user_id].posts[post_id].post_hashtags.forEach((hashtag, index) => {
             if (index === 0){
                 post_hashtags += `#${hashtag}`
             }
@@ -202,7 +200,7 @@ function renderPostCommentsContainer(comments_for_post, element_id, user_id) {
                 <p class='user-nickname'>${user_name}</p>
             </div>
     
-            <div id='general-comments-container-${element_id}' class='general-comments-container'>
+            <div id='general-comments-container-${post_id}' class='general-comments-container'>
                 <div class='user-post-description'>
                     <div class='user-profile-container-under'>
                         <img class='user-profile-picture' src='${profile_picture}'>
@@ -248,7 +246,7 @@ function renderPostCommentsContainer(comments_for_post, element_id, user_id) {
     
                 <div class='publish-comment-container'>
                     <textarea class="add-comment add-comment-popup" placeholder="Add comment..."></textarea>
-                    <p data-index='${element_id}' class="publish-comment-button publish-comment-button-popup">Publish</p>
+                    <p data-index='${post_id}' class="publish-comment-button publish-comment-button-popup">Publish</p>
                 </div>
             </div>
         </div>
@@ -257,15 +255,15 @@ function renderPostCommentsContainer(comments_for_post, element_id, user_id) {
     return comment_innerHTML;
 }
 
-function updateScrollComments() {
+function updateScrollComments(post_id, user_id) {
     let comment_list_view = document.querySelector('.general-comments-container');
     comment_list_view.addEventListener('scroll', async () => {
         if (comment_list_view.scrollTop + comment_list_view.clientHeight >= comment_list_view.scrollHeight) {
-            // it has following pattern general-comments-container-1
-            let commets_container_id = comment_list_view.id.slice(27);
+            // // it has following pattern general-comments-container-1
+            // let commets_container_id = comment_list_view.id.slice(27);
     
-            const new_comments_for_post = await fetchCommentsById(commets_container_id);
-            comment_list_view.innerHTML += renderPostComments(new_comments_for_post);
+            const new_comments_for_post = await fetchCommentsById(post_id);
+            comment_list_view.innerHTML += renderPostComments(new_comments_for_post, post_id, user_id);
         }
     });
 }
@@ -278,7 +276,7 @@ export function openPostComments(element, post_id, user_id){
         comment.innerHTML = renderPostCommentsContainer(post_comments, post_id, user_id);
 
         // it is a need, because while rendering new html it loses onscroll
-        updateScrollComments();
+        updateScrollComments(post_id, user_id);
         // it is a need, because while rendering new html it loses onclick
         updatePublishCommentButton(document.querySelectorAll('.add-comment-popup'), document.querySelectorAll('.publish-comment-button-popup'));
 
@@ -312,7 +310,6 @@ export function closeCommentsPopUp() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-
     // add anitial eventListener to publish comment button
     updatePublishCommentButton(document.querySelectorAll('.add-comment'), document.querySelectorAll('.publish-comment-button'));
 

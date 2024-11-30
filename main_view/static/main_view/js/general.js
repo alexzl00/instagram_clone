@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
      
     function generatePostDescription(post, user_nickname, user_id) {
         if (post.post_description.length > 20) {
-            console.log(post.post_description);
+            // console.log(post.post_description);
             let text = post.post_description.slice(0, 17) + '...';
             return `<span class="user_nickname">${user_nickname}</span> ${text} <span data-user-id="${user_id}" data-post-id="${post.id}" class="extend-post-description">more</span>`
         } else {
@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const user_nickname = element.user.nickname;
         // console.log(element.posts);
         for (let post of Object.values(element.posts)) {
-            console.log(post);
             const post_id = post.id;
             const post_image = post.post_image_path;
             const post_description = post.post_description;
@@ -121,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <p class="likes-counter">224 450 Likes</p>
                         <p id='post-description-${post_id}' data-full-description='${post_description}' class="post-description">${generatePostDescription(post, user_nickname, user_id)}</p>
                         <p id='post-hashtags-${post_id}' class="post-hashtags">${post_hashtags}</p>
-                        <p id='post-index-${post_id}' class="show-comments-text">Show all comments (${4})</p>
+                        <p id='post-index-${post_id}' data-user-id="${user_id}" class="show-comments-text">Show all comments (${4})</p>
                         <div class="comment-section">
                             <textarea class="add-comment" placeholder="Add comment..."></textarea>
                             <p data-index="${post_id}" class="publish-comment-button">Publish</p>
@@ -140,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.extend-post-description').forEach((element, index) => {
         const user_id = parseInt(element.dataset.userId);
         const post_id = parseInt(element.dataset.postId);
-        console.log(user_posts_list[user_id].user.nickname);
+        // console.log(user_posts_list[user_id].user.nickname);
         element.addEventListener('click', () => {
             let full_description = `<span class="user_nickname">${user_posts_list[user_id].user.nickname}</span> ${user_posts_list[user_id].posts[post_id].post_description}`;
     

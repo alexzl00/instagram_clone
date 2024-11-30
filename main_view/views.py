@@ -9,6 +9,11 @@ import random
 import string
 from datetime import datetime
 
+import requests
+
+from rest_framework_simplejwt.authentication import JWTAuthentication
+from rest_framework_simplejwt.exceptions import InvalidToken, AuthenticationFailed
+
 from PIL import Image
 
 from django.core.exceptions import ObjectDoesNotExist
@@ -16,8 +21,10 @@ from django.http import JsonResponse
 
 from dataclasses import dataclass
 
-from itertools import groupby
 from operator import itemgetter
+
+from api.models import User as CustomUser
+
 
 @dataclass
 class User:
@@ -184,7 +191,7 @@ def load_user(nickname):
 
 def load_users_recommendations():
     users_to_recommend = ['why_not_donut', 'donuts_mother']
-    data, count = get_supabase_client().table('User').select('*').in_('nickname', users_to_recommend).execute()
+    data, count = get_supabase_client().table('User').select('id, created_at, name, nickname, profile_picture_path').in_('nickname', users_to_recommend).execute()
 
     # get image from storage by path
     for i in range(0, len(data[1])):
@@ -305,20 +312,48 @@ def upload_file(request):
 
 class MainView(View):
     def get(self, request):
+        token = request.COOKIES.get('access_token')
 
-        load_user('User_1')
+        auth = JWTAuthentication()
         
-        # for user in user_posts_list:
-        #     user_id = add_user_to_db(user)[1][0]['id']
-        #     add_post_to_db(user, user_id)
+        if token is not None:
+            try:
+                validated_token = auth.get_validated_token(token)
+                user = auth.get_user(validated_token)
+                
+                load_user('User_1')
 
-        # add_post_to_db({'hashtags': '#hello #goodsupe #myname'}, 1)
+                return render(request, 'main_view/main_html.html', {
+                    'user_profiles_list': load_users_recommendations(),
+                    'user_posts_list': load_users_posts([16, 17, 18]),
+                })
+            except (InvalidToken, AuthenticationFailed):
+                return render(request, 'login.html')
+        else:
+            return render(request, 'login.html')
         
 
-        #load_users_posts()
-        #load_post_hashtags()
 
-        return render(request, 'main_view/main_html.html', {
-            'user_profiles_list': load_users_recommendations(),
-            'user_posts_list': load_users_posts([16, 17, 18]),
-        })
+            # for user in user_posts_list:
+            #     user_id = add_user_to_db(user)[1][0]['id']
+            #     add_post_to_db(user, user_id)
+
+            # add_post_to_db({'hashtags': '#hello #goodsupe #myname'}, 1)
+            
+
+            #load_users_posts()
+            #load_post_hashtags()
+
+            # print(models.User.objects.all())
+            
+            # endpoint = 'http://127.0.0.1:8000/api/User_1'
+            # response = requests.get(endpoint)
+            # print(response.json())
+
+            # endpoint = 'http://127.0.0.1:8000/api/update/1/'
+            # response = requests.put(endpoint, json={'post_description': 'This is not a post description'})
+            # print(response.json())
+
+            # endpoint = 'http://127.0.0.1:8000/api/get_post/1/'
+            # response = requests.get(endpoint)
+            # print(response.json())
